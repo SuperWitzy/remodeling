@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
-        // Configuración de colores regresando al verde original solicitado
+        // Configuración de colores verde originales solicitados
         tailwind.config = {
             theme: {
                 extend: {
@@ -21,8 +21,8 @@
                         brand: {
                             50: '#f0fdf4',
                             100: '#dcfce7',
-                            500: '#22c55e', // Verde original
-                            600: '#16a34a', // Verde oscuro original
+                            500: '#22c55e', // Verde principal
+                            600: '#16a34a', // Verde para hover
                             900: '#14532d',
                         }
                     }
@@ -33,14 +33,14 @@
     <style>
         .gallery-item { transition: all 0.4s ease; }
         .hidden-item { display: none; }
-        /* Transiciones de página virtual */
+        /* Transiciones entre páginas virtuales */
         .page-view { display: none; }
         .page-view.active { display: block; animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        img { background-color: #f3f4f6; }
+        img { background-color: #f3f4f6; min-height: 50px; }
     </style>
 </head>
 <body class="font-sans text-gray-800 antialiased bg-gray-50">
@@ -51,17 +51,17 @@
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
                     <a href="javascript:void(0)" onclick="navigateTo('main')" class="flex items-center">
-                        <!-- El logo se mantiene tal cual es el archivo (rojo/negro) -->
-                        <img src="./imagen.jpg" alt="Ronny's Remodeling Logo" class="h-16 w-auto object-contain py-2" onerror="this.src='https://raw.githubusercontent.com/SuperWitzy/remodeling/main/imagen.jpg'">
+                        <!-- Logo Principal (Rojo del archivo imagen.jpg) -->
+                        <img src="https://raw.githubusercontent.com/SuperWitzy/remodeling/main/img/imagen.jpg" alt="Ronny's Remodeling Logo" class="h-16 w-auto object-contain py-2">
                     </a>
                 </div>
-                <!-- Menú Escritorio en verde -->
+                <!-- Menú Escritorio en Verde -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="javascript:void(0)" onclick="navigateTo('main', 'home')" class="text-gray-600 hover:text-brand-600 font-bold transition uppercase text-xs tracking-widest">Home</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('about')" class="text-gray-600 hover:text-brand-600 font-bold transition uppercase text-xs tracking-widest">About Us</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('main', 'services')" class="text-gray-600 hover:text-brand-600 font-bold transition uppercase text-xs tracking-widest">Services</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('main', 'portfolio')" class="text-gray-600 hover:text-brand-600 font-bold transition uppercase text-xs tracking-widest">Portfolio</a>
-                    <a href="javascript:void(0)" onclick="navigateTo('main', 'testimonials')" class="text-gray-600 hover:text-brand-600 font-bold transition uppercase text-xs tracking-widest">Reviews</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('main', 'home')" class="text-gray-600 hover:text-brand-500 font-bold transition uppercase text-xs tracking-widest">Home</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('about')" class="text-gray-600 hover:text-brand-500 font-bold transition uppercase text-xs tracking-widest">About Us</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('main', 'services')" class="text-gray-600 hover:text-brand-500 font-bold transition uppercase text-xs tracking-widest">Services</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('main', 'portfolio')" class="text-gray-600 hover:text-brand-500 font-bold transition uppercase text-xs tracking-widest">Portfolio</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('main', 'testimonials')" class="text-gray-600 hover:text-brand-500 font-bold transition uppercase text-xs tracking-widest">Reviews</a>
                     <a href="javascript:void(0)" onclick="navigateTo('main', 'contact')" class="bg-brand-500 text-white px-6 py-2.5 rounded-full font-bold hover:bg-brand-600 transition shadow-lg uppercase text-xs tracking-widest">Get a Quote</a>
                 </div>
                 <div class="md:hidden flex items-center">
@@ -76,7 +76,7 @@
             <a href="javascript:void(0)" onclick="navigateTo('main', 'services')" class="block px-3 py-2 text-gray-700 font-bold uppercase text-xs">Services</a>
             <a href="javascript:void(0)" onclick="navigateTo('main', 'portfolio')" class="block px-3 py-2 text-gray-700 font-bold uppercase text-xs">Portfolio</a>
             <a href="javascript:void(0)" onclick="navigateTo('main', 'testimonials')" class="block px-3 py-2 text-gray-700 font-bold uppercase text-xs">Reviews</a>
-            <a href="javascript:void(0)" onclick="navigateTo('main', 'contact')" class="block px-3 py-3 bg-brand-500 text-white rounded-md font-bold uppercase text-xs">Get a Quote</a>
+            <a href="javascript:void(0)" onclick="navigateTo('main', 'contact')" class="block px-3 py-3 bg-brand-500 text-white rounded-md font-bold uppercase text-xs text-center">Get a Quote</a>
         </div>
     </nav>
 
@@ -91,60 +91,27 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center md:text-left text-white">
                 <div class="max-w-3xl">
                     <span class="inline-block py-1 px-4 rounded-full bg-brand-500/20 text-brand-500 font-black text-xs mb-4 border border-brand-500/30 backdrop-blur-sm uppercase tracking-[0.3em]">All-In-One High Quality Service</span>
-                    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">Master <span class="text-brand-500">Remodeling</span> for your modern home.</h1>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">Expert <span class="text-brand-500">Remodeling</span> for your modern home.</h1>
                     <p class="text-xl text-gray-200 mb-10">Luxury transformations in Northern Virginia. Licensed and insured contractors dedicated to perfection.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="javascript:void(0)" onclick="navigateTo('main', 'contact')" class="bg-brand-500 text-white px-8 py-4 rounded-xl font-black text-lg hover:bg-brand-600 transition text-center shadow-lg uppercase tracking-widest">Get a Free Estimate</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('main', 'portfolio')" class="bg-white/10 text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition backdrop-blur-sm text-center uppercase tracking-widest">Explore Portfolio</a>
+                        <a href="javascript:void(0)" onclick="navigateTo('main', 'portfolio')" class="bg-white/10 text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition backdrop-blur-sm text-center uppercase tracking-widest">View Portfolio</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services -->
-        <section id="services" class="py-24 bg-white text-center">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto mb-16">
-                    <h2 class="text-brand-600 font-black uppercase tracking-[0.3em] text-sm mb-2">Our Expertise</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Home Upgrades</h3>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div class="p-10 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm hover:shadow-2xl transition-all group">
-                        <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:bg-brand-600 group-hover:text-white transition-colors mx-auto">
-                            <i class="fa-solid fa-kitchen-set"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4 text-gray-900">Kitchens</h4>
-                        <p class="text-gray-600 text-sm">Full gut renovations, custom cabinetry, and premium stone installation.</p>
-                    </div>
-                    <div class="p-10 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm hover:shadow-2xl transition-all group">
-                        <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:bg-brand-600 group-hover:text-white transition-colors mx-auto">
-                            <i class="fa-solid fa-bath"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4 text-gray-900">Bathrooms</h4>
-                        <p class="text-gray-600 text-sm">Luxury master retreats, walk-in showers, and custom tiling solutions.</p>
-                    </div>
-                    <div class="p-10 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm hover:shadow-2xl transition-all group">
-                        <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:bg-brand-600 group-hover:text-white transition-colors mx-auto">
-                            <i class="fa-solid fa-house"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4 text-gray-900">Interiors</h4>
-                        <p class="text-gray-600 text-sm">Drywall finishing, professional painting, and expert flooring installation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Gallery -->
-        <section id="portfolio" class="py-24 bg-gray-50 text-center">
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 bg-white text-center">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-brand-600 font-black uppercase tracking-[0.3em] text-sm mb-2">Our Portfolio</h2>
                 <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Categorized Real Work</h3>
                 
                 <div class="flex justify-center gap-4 flex-wrap mb-12">
-                    <button onclick="filterGallery('all', event)" class="filter-btn active px-8 py-3 rounded-full border-2 border-brand-600 bg-brand-600 text-white font-black uppercase text-xs tracking-widest transition-all">All Projects</button>
-                    <button onclick="filterGallery('kitchen', event)" class="filter-btn px-8 py-3 rounded-full border-2 border-gray-200 bg-white text-gray-700 font-black uppercase text-xs tracking-widest transition-all hover:border-brand-600">Kitchens</button>
-                    <button onclick="filterGallery('bath', event)" class="filter-btn px-8 py-3 rounded-full border-2 border-gray-200 bg-white text-gray-700 font-black uppercase text-xs tracking-widest transition-all hover:border-brand-600">Bathrooms</button>
-                    <button onclick="filterGallery('interior', event)" class="filter-btn px-8 py-3 rounded-full border-2 border-gray-200 bg-white text-gray-700 font-black uppercase text-xs tracking-widest transition-all hover:border-brand-600">Interiors</button>
+                    <button onclick="filterGallery('all', event)" class="filter-btn active px-8 py-3 rounded-full border-2 border-brand-500 bg-brand-500 text-white font-black uppercase text-xs tracking-widest transition-all">All Projects</button>
+                    <button onclick="filterGallery('kitchen', event)" class="filter-btn px-8 py-3 rounded-full border-2 border-gray-200 bg-white text-gray-700 font-black uppercase text-xs tracking-widest transition-all hover:border-brand-500">Kitchens</button>
+                    <button onclick="filterGallery('bath', event)" class="filter-btn px-8 py-3 rounded-full border-2 border-gray-200 bg-white text-gray-700 font-black uppercase text-xs tracking-widest transition-all hover:border-brand-500">Bathrooms</button>
+                    <button onclick="filterGallery('interior', event)" class="filter-btn px-8 py-3 rounded-full border-2 border-gray-200 bg-white text-gray-700 font-black uppercase text-xs tracking-widest transition-all hover:border-brand-500">Interiors</button>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery">
@@ -173,41 +140,49 @@
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <section id="testimonials" class="py-24 bg-white text-center">
+        <!-- Reviews / Testimonials -->
+        <section id="testimonials" class="py-24 bg-gray-50 text-center">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="mb-16">
-                    <h2 class="text-brand-600 font-black uppercase tracking-[0.3em] text-sm mb-2">Testimonials</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h3>
+                <div class="mb-16 text-center">
+                    <h2 class="text-brand-500 font-black uppercase tracking-[0.3em] text-sm mb-2">Testimonials</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">What Our Clients Say</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 p-8 rounded-3xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
                         <div class="flex text-yellow-400 mb-4 justify-center"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                         <p class="text-gray-700 italic mb-6">"Ronny's team was professional and tidy. They transformed our kitchen into a masterpiece."</p>
                         <p class="font-black text-gray-900 uppercase text-[10px] tracking-widest">— Sarah J., Leesburg</p>
                     </div>
-                    <div class="bg-gray-50 p-8 rounded-3xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
                         <div class="flex text-yellow-400 mb-4 justify-center"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                         <p class="text-gray-700 italic mb-6">"Excellent attention to detail. The best contractor experience we've ever had in Virginia."</p>
                         <p class="font-black text-gray-900 uppercase text-[10px] tracking-widest">— Mark R., Sterling</p>
                     </div>
-                    <div class="bg-gray-50 p-8 rounded-3xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
                         <div class="flex text-yellow-400 mb-4 justify-center"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                         <p class="text-gray-700 italic mb-6">"Our new bathroom is stunning. Ronny's vision and execution are top tier."</p>
                         <p class="font-black text-gray-900 uppercase text-[10px] tracking-widest">— Jessica L., Ashburn</p>
                     </div>
                 </div>
+
+                <!-- ENLACE DE FACEBOOK RESTAURADO -->
+                <div class="mt-16 text-center">
+                    <p class="text-gray-500 text-sm uppercase font-bold tracking-widest mb-6">Follow us for more updates</p>
+                    <a href="https://www.facebook.com/share/1AmiZ96cvB/" target="_blank" class="inline-flex items-center gap-3 bg-brand-500 text-white px-10 py-4 rounded-full font-black uppercase text-sm tracking-widest hover:bg-brand-600 transition-all shadow-xl active:scale-95">
+                        <i class="fa-brands fa-facebook text-xl"></i> View our Facebook Page
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-gray-50">
+        <section id="contact" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gray-900 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row border-4 border-brand-100">
-                    <div class="lg:w-1/3 bg-brand-600 p-12 text-white">
+                    <div class="lg:w-1/3 bg-brand-500 p-12 text-white">
                         <h3 class="text-4xl font-black mb-8 text-white uppercase tracking-tighter">Get in Touch</h3>
                         <p class="mb-10 text-lg opacity-90">Ready for your transformation? Let's talk about your dream project today.</p>
-                        <div class="space-y-6 text-lg font-bold">
+                        <div class="space-y-6 text-lg font-bold text-left">
                             <p><i class="fa-solid fa-phone mr-3 opacity-70"></i> 571-577-2104</p>
                             <p><i class="fa-solid fa-envelope mr-3 opacity-70"></i> Ronnyq70@gmail.com</p>
                             <p><i class="fa-solid fa-location-dot mr-3 opacity-70"></i> Leesburg, Virginia</p>
@@ -225,13 +200,13 @@
                             </div>
                             <div class="col-span-2">
                                 <label class="block text-gray-400 text-xs font-bold uppercase mb-2">Email</label>
-                                <input type="email" name="email" value="Ronnyq70@gmail.com" required class="w-full bg-gray-700 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                                <input type="email" name="email" value="Ronnyq70@gmail.com" required class="w-full bg-gray-700 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-brand-500 outline-none col-span-2 transition-all">
                             </div>
                             <div class="col-span-2">
                                 <label class="block text-gray-400 text-xs font-bold uppercase mb-2">Project Details</label>
                                 <textarea name="message" rows="4" placeholder="How can we help you?" class="w-full bg-gray-700 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-brand-500 outline-none resize-none transition-all"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-brand-500 text-white font-black py-5 rounded-xl col-span-2 uppercase tracking-widest hover:bg-brand-600 transition-all shadow-xl active:scale-95">Send Message</button>
+                            <button type="submit" class="w-full bg-brand-500 text-white font-black py-5 rounded-xl col-span-2 uppercase tracking-widest hover:bg-brand-600 transition-all shadow-xl active:scale-95 text-center">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -239,53 +214,56 @@
         </section>
     </main>
 
-    <!-- VISTA: ABOUT US (Independiente) -->
+    <!-- VISTA: ABOUT US -->
     <main id="view-about" class="page-view pt-32 pb-24 bg-white min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-            <button onclick="navigateTo('main')" class="mb-12 text-brand-600 font-bold flex items-center gap-2 hover:translate-x-[-10px] transition-transform text-lg group">
+            <button onclick="navigateTo('main')" class="mb-12 text-brand-500 font-bold flex items-center gap-2 hover:translate-x-[-10px] transition-transform text-lg group">
                 <i class="fa-solid fa-arrow-left transition-transform group-hover:scale-125"></i> BACK TO HOME
             </button>
             
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="lg:w-1/2 relative">
                     <img src="https://raw.githubusercontent.com/SuperWitzy/remodeling/main/img/Kitchen01/IMG_1130.JPG" alt="Ronny at work" class="rounded-[3rem] shadow-2xl w-full h-[600px] object-cover bg-gray-100 border-8 border-gray-50" />
-                    <div class="absolute -bottom-6 -right-6 bg-brand-600 text-white p-10 rounded-3xl shadow-2xl hidden md:block text-center">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-500 text-white p-10 rounded-3xl shadow-2xl hidden md:block text-center">
                         <p class="text-4xl font-black italic uppercase tracking-tighter">RONNY'S</p>
                         <p class="text-sm uppercase tracking-[0.2em] font-bold mt-2">Owner & Lead Contractor</p>
                     </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <h2 class="text-brand-600 font-black uppercase tracking-[0.4em] text-sm mb-4">About the Company</h2>
+                    <h2 class="text-brand-500 font-black uppercase tracking-[0.4em] text-sm mb-4">About the Company</h2>
                     <h1 class="text-5xl font-bold text-gray-900 mb-8 leading-tight">Master Craftsmanship for your Home.</h1>
                     <p class="text-gray-600 text-xl mb-6 leading-relaxed">
                         I am Ronny, owner of Ronny's Remodeling. With over 15 years of experience, I personally supervise every project on-site to ensure Northern Virginia homes receive the highest quality finishes.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Expert Tiling</div>
-                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Interior Design</div>
-                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Custom Drywall</div>
-                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Fine Painting</div>
+                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg text-left"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Expert Tiling</div>
+                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg text-left"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Interior Design</div>
+                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg text-left"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Custom Drywall</div>
+                        <div class="flex items-center gap-3 font-bold text-gray-800 text-lg text-left"><i class="fa-solid fa-circle-check text-brand-500 text-xl"></i> Fine Painting</div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- VISTA: DETALLE PROYECTO (Sin Etiquetas) -->
+    <!-- VISTA: DETALLE PROYECTO -->
     <main id="view-project" class="page-view pt-32 pb-24 bg-white min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <button onclick="navigateTo('main', 'portfolio')" class="mb-12 text-brand-600 font-bold flex items-center gap-2 hover:translate-x-[-10px] transition-transform text-lg group">
+            <button onclick="navigateTo('main', 'portfolio')" class="mb-12 text-brand-500 font-bold flex items-center gap-2 hover:translate-x-[-10px] transition-transform text-lg group">
                 <i class="fa-solid fa-arrow-left transition-transform group-hover:scale-125"></i> BACK TO PORTFOLIO
             </button>
             <div id="project-detail-content"></div>
         </div>
     </main>
 
+    <!-- Pie de Página -->
     <footer class="bg-gray-950 py-16 text-gray-500 text-center border-t border-gray-900">
         <div class="flex flex-col items-center gap-6">
-            <!-- Logo Footer -->
-            <img src="./imagen.jpg" alt="Ronny's Remodeling Footer Logo" class="h-24 w-auto object-contain" onerror="this.src='https://raw.githubusercontent.com/SuperWitzy/remodeling/main/imagen.jpg'">
-            <p class="uppercase tracking-[0.3em] text-xs font-black">&copy; <span id="year"></span> Ronny's Remodeling Contractors LLC. VA.</p>
+            <img src="https://raw.githubusercontent.com/SuperWitzy/remodeling/main/img/imagen.jpg" alt="Logo Footer" class="h-24 w-auto object-contain">
+            <div class="flex gap-6 mb-4">
+                <a href="https://www.facebook.com/share/1AmiZ96cvB/" target="_blank" class="text-white hover:text-brand-500 text-2xl transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+            <p class="uppercase tracking-[0.3em] text-[10px] font-black">&copy; <span id="year"></span> Ronny's Remodeling Contractors LLC. VA.</p>
         </div>
     </footer>
 
@@ -338,31 +316,30 @@
             const data = projectsData[id];
             if(!data) return;
 
-            // Recorrer todas las fotos sin etiquetas de texto
             let photoGrid = '';
             data.images.forEach(imgName => {
                 const fullUrl = baseUrl + data.path + imgName;
                 photoGrid += `
                     <div class="relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-gray-100 group">
-                        <img src="${fullUrl}" class="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105" alt="Gallery Photo">
+                        <img src="${fullUrl}" class="w-full h-[550px] object-cover transition duration-700 group-hover:scale-105" alt="Work Photo">
                     </div>
                 `;
             });
 
             const content = `
                 <div class="mb-20 text-center md:text-left">
-                    <span class="text-brand-600 font-black uppercase tracking-[0.4em] text-sm mb-4 block">Project Showcase</span>
+                    <span class="text-brand-500 font-black uppercase tracking-[0.4em] text-sm mb-4 block">Project Gallery</span>
                     <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">${data.title}</h1>
-                    <p class="text-gray-500 text-2xl font-medium"><i class="fa-solid fa-location-dot text-brand-600 mr-2"></i> Serving ${data.location}</p>
+                    <p class="text-gray-500 text-2xl font-medium"><i class="fa-solid fa-location-dot text-brand-500 mr-2"></i> Serving ${data.location}</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">${photoGrid}</div>
                 <div class="bg-gray-900 rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden text-center md:text-left">
                     <div class="relative z-10">
                         <div class="flex flex-col md:flex-row items-center gap-8 mb-12 justify-center md:justify-start">
-                            <div class="w-24 h-24 bg-brand-600 rounded-full flex items-center justify-center text-4xl font-black italic">R</div>
+                            <div class="w-24 h-24 bg-brand-500 rounded-full flex items-center justify-center text-4xl font-black italic">R</div>
                             <div>
-                                <p class="text-3xl font-bold uppercase tracking-tighter text-white">Owner's Review</p>
-                                <p class="text-brand-500 text-sm uppercase font-bold mt-1 tracking-widest">Project Oversight</p>
+                                <p class="text-3xl font-bold uppercase tracking-tighter text-white text-center md:text-left">Owner's Review</p>
+                                <p class="text-brand-100 opacity-60 text-sm uppercase font-bold mt-1 tracking-widest text-center md:text-left">Project Lead</p>
                             </div>
                         </div>
                         <p class="text-3xl md:text-4xl leading-relaxed italic text-gray-300 font-light max-w-5xl mx-auto md:mx-0">"${data.ownerNote}"</p>
@@ -373,7 +350,7 @@
             navigateTo('project');
         }
 
-        // Función de filtrado con corrección de estilo definitiva
+        // Función de filtrado con corrección para no borrar texto de botones
         function filterGallery(category, event) {
             const items = document.querySelectorAll('.gallery-item');
             const btns = document.querySelectorAll('.filter-btn');
@@ -387,13 +364,13 @@
             });
 
             btns.forEach(btn => {
-                btn.classList.remove('bg-brand-600', 'text-white', 'border-brand-600');
+                btn.classList.remove('bg-brand-500', 'text-white', 'border-brand-500');
                 btn.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
             });
 
             if (event && event.currentTarget) {
                 event.currentTarget.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
-                event.currentTarget.classList.add('bg-brand-600', 'text-white', 'border-brand-600');
+                event.currentTarget.classList.add('bg-brand-500', 'text-white', 'border-brand-500');
             }
         }
 
